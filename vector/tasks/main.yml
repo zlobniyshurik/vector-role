@@ -1,0 +1,5 @@
+---
+# tasks file for vector
+- name: Test
+  ansible.builtin.debug:
+    msg: "Test!"
