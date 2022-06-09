@@ -1,38 +1,55 @@
-Role Name
+zlobniyshurik.vector
 =========
 
-A brief description of the role goes here.
+Install and enable **[Vector](https://vector.dev)**-service
 
 Requirements
 ------------
 
-Any pre-requisites that may not be covered by Ansible itself or the role should be mentioned here. For instance, if the role uses the EC2 module, it may be a good idea to mention in this section that the boto package is required.
+Tested with `RHEL 8.x` clones.  
+
+In theory can work with `Fedora` and `RHEL 9.x` (RPM-based OSes with **dnf** package manager)
 
 Role Variables
 --------------
 
-A description of the settable variables for this role should go here, including any variables that are in defaults/main.yml, vars/main.yml, and any variables that can/should be set via parameters to the role. Any variables that are read from other roles and/or the global scope (ie. hostvars, group vars, etc.) should be mentioned here as well.
+***[defaults/main.yml](./defaults/main.yml)***
+| Variables | Description | Default settings |
+| :--------  | :----------   | :------------:  |
+| **`vector_arch`** | Arch of `Vector` packages *(aarch64/armv7/x86_64)* | **x86_64** |
+| **`vector_environment_file`** | Path to environment file | **`/etc/default/vector`** |
+| **`vector_group`** | `Vector` group | **vector** |
+| **`vector_rpm_build`** | Build of `Vector` RPM-packages | **1** |
+| **`vector_user`** | `Vector` user | **vector** |
+| **`vector_version`** | Version of `Vector` packages | **0.21.2** |
+
+
+***[vars/main.yml](./vars/main.yml)***
+| Variables | Description | Default settings |
+| :--------  | :----------   | :------------  |
+| **`vector_packages`** | List of installable `Vector` packages | <ul><li>vector</li></ul>  |
 
 Dependencies
 ------------
 
-A list of other roles hosted on Galaxy should go here, plus any details in regards to parameters that may need to be set for other roles, or variables that are used from other roles.
+No dependencies
 
 Example Playbook
 ----------------
 
-Including an example of how to use your role (for instance, with variables passed in as parameters) is always nice for users too:
+**playbook**
 
     - hosts: servers
       roles:
-         - { role: username.rolename, x: 42 }
+         - { role: zlobniyshurik.vector }
 
 License
 -------
 
-BSD
+MIT
 
 Author Information
 ------------------
 
-An optional section for the role authors to include contact information, or a website (HTML is not allowed).
+Alexander Dyadyun  
+zlobniyshurik@gmail.com
