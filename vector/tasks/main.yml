@@ -3,7 +3,7 @@
 - name: Create folder for unit-file
   become: true
   ansible.builtin.file:
-    path: "/etc/systemd/system/vector.service.d"
+    path: "/etc/systemd/system/multi-user.target.wants/vector.service.d"
     state: directory
     mode: "0755"
     owner: "root"
@@ -13,7 +13,7 @@
   become: true
   ansible.builtin.template:
     src: "vector.j2"
-    dest: "/etc/systemd/system/vector.service.d/override.conf"
+    dest: "/etc/systemd/system/multi-user.target.wants/vector.service.d/override.conf"
     owner: "root"
     group: "root"
     mode: "0755"
