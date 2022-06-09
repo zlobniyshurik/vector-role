@@ -6,5 +6,5 @@
     name: "https://packages.timber.io/vector/{{ vector_version }}/{{ item }}-{{ vector_version }}-{{ vector_rpm_build }}.{{ vector_arch }}.rpm"
     state: present
     disable_gpg_check: true
-    with_items: "{{ vector_packages }}"
+  with_items: "{{ vector_packages }}"
   notify: Start vector service
