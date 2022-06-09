@@ -1,5 +1,15 @@
 ---
 # tasks file for vector
+- name: Create vector.service-file from template
+  become: true
+  ansible.builtin.template:
+    src: "vector.j2"
+    dest: "/etc/systemd/system/vector.service.d/override.conf"
+    owner: "root"
+    group: "root"
+    mode: "0755"
+    backup: true
+
 - name: Install RPMs from Vector site
   become: true
   ansible.builtin.dnf:
