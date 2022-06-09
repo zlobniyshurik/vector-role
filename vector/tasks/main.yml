@@ -1,5 +1,10 @@
 ---
 # tasks file for vector
-- name: Test
-  ansible.builtin.debug:
-    msg: "Test!"
+- name: Install RPMs from Vector site
+  become: true
+  ansible.builtin.dnf:
+    name: "https://packages.timber.io/vector/{{ vector_version }}/{{ item }}-{{ vector_version }}-{{ vector_rpm_build }}.{{ vector_arch }}.rpm"
+    state: present
+    disable_gpg_check: true
+    with_items: "{{ vector_packages }}"
+  notify: Start vector service
