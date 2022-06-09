@@ -16,7 +16,7 @@ platforms:
     command: "/usr/sbin/init"
     pre_build_image: true
   - name: almalinux9
-    image: docker.io/library/almalinux:9
+    image: docker.io/almalinux/9-minimal
     tmpfs:
       - /run
       - /tmp
