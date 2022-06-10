@@ -6,7 +6,7 @@
 ---
   - src: git@github.com:zlobniyshurik/vector-role.git
     scm: git
-    version: v0.0.1
+    version: 0.0.1
     name: zlobniyshurik.vector
 ```
 
